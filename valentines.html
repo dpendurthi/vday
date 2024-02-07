@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #yesButton,
+        #noButton {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        #yesButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            transition: .5s;
+        }
+
+        #image {
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img id="image" src="happy-valentine-s-day-clipart-md.png" alt="Heart Image">
+        <div id="message">Alisha will you be my Valentine?</div>
+        <button id="yesButton" onclick="celebrate('Yes! Happy Valentine\'s Day!')">Yes</button>
+        <button id="noButton" onclick="increaseYesButton()">No</button>
+    </div>
+
+    <script>
+
+        phrases = ["Are you sure?", "Try again!", "Don't be mean", "Why do you hate me", "(moo)seum", "Gloucester", "Press the yes button!", "Wrong button!"]
+        function celebrate(message) {
+            alert(message);
+        }
+
+        var button = document.getElementById('noButton');
+        button.addEventListener('mouseover', function () {
+            button.style.left = `${Math.ceil(Math.random() * 100)}%`;
+            button.style.top = `${Math.ceil(Math.random() * 100)}%`;
+        });
+
+        function increaseYesButton() {
+            var yesButton = document.getElementById('yesButton');
+            var currentSize = window.getComputedStyle(yesButton).fontSize;
+            var newSize = parseFloat(currentSize) + 10;
+            yesButton.style.fontSize = newSize + 'px';
+
+            var randomIndex = Math.floor(Math.random() * phrases.length);
+            button.textContent = phrases[randomIndex]
+        }
+    </script>
+</body>
+
+</html>
+    
